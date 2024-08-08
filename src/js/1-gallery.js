@@ -1,3 +1,6 @@
+import simpleLightbox from "simplelightbox";
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -73,7 +76,6 @@ images.forEach(({ preview, original, description }) => {
     <img
       class="gallery-image"
       src="${preview}"
-      data-source="${original}"
       alt="${description}"
     />
   </a>
@@ -81,3 +83,9 @@ images.forEach(({ preview, original, description }) => {
 });
 
 imagesList.insertAdjacentHTML("beforeend", imagesHTML);
+
+const lightbox = new simpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+});
