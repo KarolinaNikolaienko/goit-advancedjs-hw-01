@@ -29,11 +29,10 @@ form.addEventListener("submit", (event) => {
 })
 
 window.addEventListener("load", (event) => {
-    const formData_ = JSON.parse(localStorage.getItem("feedback-form-state"));
-    if (formData_) {
-        email.value = formData_.email ?? "";
-        message.value = formData_.message ?? "";
+    const storage_data = JSON.parse(localStorage.getItem("feedback-form-state"))
+    if (storage_data) {
+        formData = storage_data;
+        email.value = formData.email ?? "";
+        message.value = formData.message ?? "";
     }
-    formData.email = formData_.email;
-    formData.message = formData_.message;
 });
